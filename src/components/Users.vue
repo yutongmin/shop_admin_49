@@ -408,13 +408,13 @@ export default {
 </script>
 
 <style lang="scss">
+.el-breadcrumb {
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+}
 .users {
-  .el-breadcrumb {
-    height: 40px;
-    line-height: 40px;
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 10px;
-  }
   .input-with-select {
     width: 300px;
     margin-bottom: 10px;
