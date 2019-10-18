@@ -8,6 +8,12 @@ import Rights from './components/Rights.vue'
 
 Vue.use(Router)
 
+const originalPush = Router.prototype.push
+// eslint-disable-next-line space-before-function-paren
+Router.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err)
+}
+
 const router = new Router({
   routes: [{
     path: '/',
@@ -22,12 +28,15 @@ const router = new Router({
     component: Index,
     children: [{
       path: '/users',
+      name: 'users',
       component: Users
     }, {
       path: '/roles',
+      name: 'roles',
       component: Roles
     }, {
       path: '/rights',
+      name: 'rights',
       component: Rights
     }]
   }]

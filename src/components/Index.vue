@@ -3,14 +3,14 @@
   <el-container class="index">
     <el-header>
       <div class="logo">
-        <img src="../assets/logo.png"
+        <img src="../assets/11.jpg"
              alt="">
       </div>
       <div class="title">
-        <h1>电商后台管理系统</h1>
+        <h1>あいしちえる</h1>
       </div>
       <div class="logout">
-        欢迎光临~
+        おｈｌ~
         <a @click="logout"
            href="javascript:;">退出</a>
       </div>
@@ -92,6 +92,7 @@ export default {
       width: 180px;
       img {
         height: 40px;
+        width: 160px;
         margin: 10px;
       }
     }
