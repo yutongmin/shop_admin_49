@@ -5,6 +5,15 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 // axios 优化 - 绑定到 vue 的原型
 import axios from 'axios'
+import moment from 'moment'
+import VueQuillEditor from 'vue-quill-editor'
+
+// require styles
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+import 'quill/dist/quill.bubble.css'
+
+Vue.use(VueQuillEditor) /* { default global options } */
 
 Vue.config.productionTip = false
 
@@ -31,18 +40,21 @@ axios.interceptors.request.use(function (config) {
 axios.interceptors.response.use(function (response) {
   // 对响应数据做点什么
   response = response.data
-
   // 在响应拦截器中，直接判断status是否是401，如果是401，则是无效token的时候，跳到登录页
   if (response.meta.status === 401) {
     response.meta.msg = '尊敬的用户，token已过期，请重新登录'
     localStorage.removeItem('token')
     router.push('/login')
   }
-
   return response
 }, function (error) {
   // 对响应错误做点什么
   return Promise.reject(error)
+})
+
+// 配置过滤器
+Vue.filter('time', value => {
+  return moment(value * 1000).format('YYYY-MM-DD HH:mm:ss')
 })
 
 new Vue({

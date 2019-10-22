@@ -83,7 +83,7 @@ export default {
   },
   computed: {
     defaultActive () {
-      return this.$route.path.slice(1)
+      return this.$route.path.slice(1).split('-')[0]
     }
   }
 }
