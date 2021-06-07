@@ -1,4 +1,4 @@
-# shop_admin_49
+# shop_admin
 
 ## Project setup
 ```
